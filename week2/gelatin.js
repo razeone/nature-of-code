@@ -22,7 +22,7 @@ var Gelatin = function(x, y, w, h, c) {
 
     // Direction is inverse of velocity
     var dragForce = m.velocity.copy();
-    dragForce.mult(-1);
+    dragForce.mult(-2);
 
     // Scale according to magnitude
     dragForce.setMag(dragMagnitude);

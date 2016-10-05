@@ -49,6 +49,9 @@ function Star(m,x,y,r1,r2,npoints) {
       this.velocity.y *= -0.9;  // A little dampening when hitting the bottom
       this.position.y = height;
     }
+    if (this.position.y == 600) {
+      this.velocity.y *= 2;
+    }
   };
 
 }
