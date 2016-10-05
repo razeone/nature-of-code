@@ -1,6 +1,5 @@
-// Daniel Shiffman
-// https://www.kadenze.com/courses/the-nature-of-code
-// http://natureofcode.com/
+// Jorge Raze
+// https://raze.mx
 // Session 2: Drag Force
 
 function Star(m,x,y,r1,r2,npoints) {
@@ -49,6 +48,7 @@ function Star(m,x,y,r1,r2,npoints) {
       this.velocity.y *= -0.9;  // A little dampening when hitting the bottom
       this.position.y = height;
     }
+    // If we hit the bottom, let's increase velocity
     if (this.position.y == 600) {
       this.velocity.y *= 2;
     }
