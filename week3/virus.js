@@ -4,7 +4,7 @@ function Virus(m,x,y,r1,r2,npoints) {
 	this.pos = createVector(x, y);
 	this.vel = createVector(0, 0);
 	this.acc = createVector(0, 0);
-	this.maxspeed = 0.3;
+	this.maxspeed = 3;
 	this.maxforce = 0.2;
 
 	this.r = 6;
@@ -39,6 +39,13 @@ function Virus(m,x,y,r1,r2,npoints) {
 		this.acc.set(0, 0);
 	  };
 
+	this.touchCenter = function() {
+		if(this.pos.x == width / 2 && this.pos.y == width / 2) {
+			return true;
+			console.log('Center');
+		}
+	}
+
 	this.display = function() {
 	    var angle = TWO_PI / npoints;
 	    var halfAngle = angle/2.0;
@@ -53,9 +60,30 @@ function Virus(m,x,y,r1,r2,npoints) {
 	    }
 	    endShape(CLOSE);
 	    stroke(0);
-	    fill(255,127);
+	    fill(127);
 	};
 
-	
-}
+	// Cohesion
+// For the average location (i.e. center) of all nearby boids, calculate steering vector towards that location
+this.cohesion = function(viruses) {
+	var neighbordist = 50;
+	var sum = createVector(0, 0); // Start with empty vector to accumulate all locations
+	var count = 0;
+	for (var i = 0; i < viruses.length; i++) {
+		var d = p5.Vector.dist(this.position, viruses[i].position);
+		if ((d > 0) && (d < neighbordist)) {
+			sum.add(viruses[i].position); // Add location
+			count++;
+		}
+	}
+	if (count > 0) {
+		sum.div(count);
+		return this.seek(sum); // Steer towards the location
+	} else {
+		return createVector(0, 0);
+	}
+};
 
+
+
+}

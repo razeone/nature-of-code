@@ -2,7 +2,7 @@ function Leukocyte(x, y, m) {
 	this.pos = createVector(x, y);
 	this.vel = createVector(0, 0);
 	this.acc = createVector(0, 0);
-	this.maxspeed = 0.6;
+	this.maxspeed = 6;
 	this.maxforce = 2;
 
 	this.r = 6;
@@ -68,14 +68,14 @@ function Leukocyte(x, y, m) {
 
 	this.display = function() {
 		// Draw a particle rotated in the direction of velocity
-		stroke(200, this.lifespan);
+		stroke(127, this.lifespan);
 		strokeWeight(2);
 		fill(127, this.lifespan);
 		ellipse(this.pos.x, this.pos.y, 12, 12);
 
 		var theta = this.vel.heading() + PI / 2;
 		fill(127);
-		stroke(200);
+		stroke(127);
 		strokeWeight(1);
 		push();
 		translate(this.pos.x, this.pos.y);
@@ -89,5 +89,5 @@ function Leukocyte(x, y, m) {
 
 	}
 
-	
+
 }
