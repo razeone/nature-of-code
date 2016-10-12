@@ -4,8 +4,9 @@ function Virus(m,x,y,r1,r2,npoints) {
 	this.pos = createVector(x, y);
 	this.vel = createVector(0, 0);
 	this.acc = createVector(0, 0);
-	this.maxspeed = 3;
-	this.maxforce = 0.2;
+	this.maxspeed = 300;
+	this.maxforce = 0.3;
+
 
 	this.r = 6;
 
@@ -32,58 +33,30 @@ function Virus(m,x,y,r1,r2,npoints) {
 		this.pos.y = noise(xoff) * height;
 	}
 
-	this.update = function() {
-		this.vel.add(this.acc);
-		this.vel.limit(this.maxspeed);
-		this.pos.add(this.vel);
-		this.acc.set(0, 0);
-	  };
+	
 
-	this.touchCenter = function() {
-		if(this.pos.x == width / 2 && this.pos.y == width / 2) {
-			return true;
-			console.log('Center');
-		}
-	}
+		this.update = function() {
+			this.vel.add(this.acc);
+			this.vel.limit(this.maxspeed);
+			this.pos.add(this.vel);
+			this.acc.set(0, 0);
+		};
 
-	this.display = function() {
-	    var angle = TWO_PI / npoints;
-	    var halfAngle = angle/2.0;
-	    beginShape();
-	    for (var a = 0; a < TWO_PI; a += angle) {
-	      var sx = this.pos.x + cos(a) * r2;
-	      var sy = this.pos.y + sin(a) * r2;
-	      vertex(sx, sy);
-	      sx = this.pos.x + cos(a+halfAngle) * r1;
-	      sy = this.pos.y + sin(a+halfAngle) * r1;
-	      vertex(sx, sy);
-	    }
-	    endShape(CLOSE);
-	    stroke(0);
-	    fill(127);
-	};
-
-	// Cohesion
-// For the average location (i.e. center) of all nearby boids, calculate steering vector towards that location
-this.cohesion = function(viruses) {
-	var neighbordist = 50;
-	var sum = createVector(0, 0); // Start with empty vector to accumulate all locations
-	var count = 0;
-	for (var i = 0; i < viruses.length; i++) {
-		var d = p5.Vector.dist(this.position, viruses[i].position);
-		if ((d > 0) && (d < neighbordist)) {
-			sum.add(viruses[i].position); // Add location
-			count++;
-		}
-	}
-	if (count > 0) {
-		sum.div(count);
-		return this.seek(sum); // Steer towards the location
-	} else {
-		return createVector(0, 0);
-	}
-};
-
-
+		this.display = function() {
+		    var angle = TWO_PI / npoints;
+		    var halfAngle = angle/2.0;
+		    beginShape();
+		    for (var a = 0; a < TWO_PI; a += angle) {
+		      var sx = this.pos.x + cos(a) * r2;
+		      var sy = this.pos.y + sin(a) * r2;
+		      vertex(sx, sy);
+		      sx = this.pos.x + cos(a+halfAngle) * r1;
+		      sy = this.pos.y + sin(a+halfAngle) * r1;
+		      vertex(sx, sy);
+		    }
+		    endShape(CLOSE);
+		    stroke(0);
+		    fill(random(255), random(255), random(255));
+		};
 
 }

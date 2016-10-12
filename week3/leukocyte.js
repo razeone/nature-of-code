@@ -3,9 +3,9 @@ function Leukocyte(x, y, m) {
 	this.vel = createVector(0, 0);
 	this.acc = createVector(0, 0);
 	this.maxspeed = 6;
-	this.maxforce = 2;
+	this.maxforce = 3;
 
-	this.r = 6;
+	this.r = 4;
 
 	this.applyForce = function(force) {
 		this.acc.add(force);
@@ -49,16 +49,6 @@ function Leukocyte(x, y, m) {
 
 	}
 
-	this.virusColision = function(m) {
-	    var l = m.pos;
-	    //console.log(l.x);
-		if(l == this.pos){
-			console.log('Colision');
-			return true;
-		}
-	}
-
-
 	this.update = function() {
 		this.vel.add(this.acc);
 		this.vel.limit(this.maxspeed);
@@ -68,14 +58,14 @@ function Leukocyte(x, y, m) {
 
 	this.display = function() {
 		// Draw a particle rotated in the direction of velocity
-		stroke(127, this.lifespan);
+		stroke("#FFFFFF");
 		strokeWeight(2);
-		fill(127, this.lifespan);
+		fill("#FFFFFF");
 		ellipse(this.pos.x, this.pos.y, 12, 12);
 
 		var theta = this.vel.heading() + PI / 2;
-		fill(127);
-		stroke(127);
+		fill("#FFFFFF");
+		stroke("#FFFFFF");
 		strokeWeight(1);
 		push();
 		translate(this.pos.x, this.pos.y);
