@@ -1,3 +1,8 @@
+// Author: Jorge Alcaraz
+// https:raze.mx
+// Session 4: Fractals
+
+// Maximum number of iterations over the fractal
 var maxIterations = 1024;
 
 // Visible complex plane
@@ -12,20 +17,21 @@ var cHeight = y2-y1;
 
 function Mandelbrot() {
 
+    // Our control variable for colors and looping
     this.control;
 
 
-    // map our bitmap x coordinate to a real axis coordinate
+    // Map our bitmap x coordinate to a real axis coordinate
     this.mapXToReal = function(xcoord) {
       return cWidth * xcoord / width + x1;
     }
 
-    // map our bitmap y coordinate to an imaginary axis coordinate
+    // Map our bitmap y coordinate to an imaginary axis coordinate
     this.mapYToComplex = function(ycoord) {
       return y1 + cHeight * ycoord / height;
     }
 
-    // set colors in this function
+    // Set colors in this function
     this.generatePalette = function() {
         var palette = [];
         for (i = 0; i < 16; i++) {
@@ -45,21 +51,22 @@ function Mandelbrot() {
         return palette;
     }
 
+    // Get palette colors and set x, y to 0
     var palette = this.generatePalette();
     var x = 0;
     var y = 0;
 
+    // The display function only iterates over x axis
     this.display = function() {
         for(var x = 0; x < width; x++){
-            //for(var y = 0; y < height; y++){
-                this.control = 0;
-                this.x = x;
-                this.y = y;
-                this.iterate();
-            //}
+            this.control = 0;
+            this.x = x;
+            this.y = y;
+            this.iterate();
         }
     }
 
+    // Our function to print each corresponding point iterating over y axis in a recursive way
     this.iterate = function() {
         if(this.y >= height){
             this.y = 0;
@@ -73,9 +80,9 @@ function Mandelbrot() {
             this.y++;
             this.iterate();
         }
-        //return control;
     };
 
+    // Get the number of iterations corresponding to a given point so we can draw it
     this.getIterations = function(z) {
         var iterations = 0;
         var cReal = this.mapXToReal(z[0]);
@@ -84,7 +91,6 @@ function Mandelbrot() {
         var zReal = 0.0;
         var zImg = 0.0;
 
-        //var control = 0;
         while (zReal * zReal + zImg*zImg < 4 && iterations < maxIterations) {
             var tmpZReal = zReal*zReal - zImg*zImg + cReal;
             var tmpZImg = 2*zReal*zImg + cImg;
