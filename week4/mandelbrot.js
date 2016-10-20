@@ -51,20 +51,28 @@ function Mandelbrot() {
 
     this.display = function() {
         for(var x = 0; x < width; x++){
-            for(var y = 0; y < height; y++){
+            //for(var y = 0; y < height; y++){
                 this.control = 0;
                 this.x = x;
                 this.y = y;
                 this.iterate();
-                stroke(palette[this.control]);
-                point(x, y);
-            }
+            //}
         }
     }
 
     this.iterate = function() {
-        var z = [this.x, this.y];
-        this.control = this.getIterations(z);
+        if(this.y >= height){
+            this.y = 0;
+            return;
+        }
+        else{
+            var z = [this.x, this.y];
+            this.control = this.getIterations(z);
+            stroke(palette[this.control]);
+            point(this.x, this.y);
+            this.y++;
+            this.iterate();
+        }
         //return control;
     };
 
