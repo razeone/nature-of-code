@@ -12,6 +12,8 @@ var cHeight = y2-y1;
 
 function Mandelbrot() {
 
+    this.control;
+
 
     // map our bitmap x coordinate to a real axis coordinate
     this.mapXToReal = function(xcoord) {
@@ -50,8 +52,11 @@ function Mandelbrot() {
     this.display = function() {
         for(var x = 0; x < width; x++){
             for(var y = 0; y < height; y++){
+                this.control = 0;
+                this.x = x;
+                this.y = y;
                 var color = this.iterate(x, y);
-                stroke(palette[color]);
+                stroke(palette[this.control]);
                 point(x, y);
             }
         }
@@ -61,26 +66,28 @@ function Mandelbrot() {
 
     }
 
-    this.iterate = function(x, y) {
-        var cReal = this.mapXToReal(x);
-        var cImg = this.mapYToComplex(y);
+    this.iterate = function() {
+        var cReal = this.mapXToReal(this.x);
+        var cImg = this.mapYToComplex(this.y);
 
-        var zReal = 0.0;
-        var zImg = 0.0;
+        if(this.control == 0){
+            var zReal = 0.0;
+            var zImg = 0.0;
+        }
 
-        var control = 0;
-        while (zReal * zReal + zImg*zImg < 4 && control < maxIterations) {
+        //var control = 0;
+        while (zReal * zReal + zImg*zImg < 4 && this.control < maxIterations) {
             var tmpZReal = zReal*zReal - zImg*zImg + cReal;
             var tmpZImg = 2*zReal*zImg + cImg;
             if (zReal == tmpZReal && zImg == tmpZImg) {
-                control = maxIterations;
+                this.control = maxIterations;
                 break;
             }
             zReal = tmpZReal;
             zImg = tmpZImg;
-            control++;
+            this.control++;
         }
-        return control;
+        //return control;
     };
 
 }
