@@ -55,39 +55,40 @@ function Mandelbrot() {
                 this.control = 0;
                 this.x = x;
                 this.y = y;
-                var color = this.iterate(x, y);
+                this.iterate();
                 stroke(palette[this.control]);
                 point(x, y);
             }
         }
     }
 
-    this.draw = function() {
-
-    }
-
     this.iterate = function() {
-        var cReal = this.mapXToReal(this.x);
-        var cImg = this.mapYToComplex(this.y);
+        var z = [this.x, this.y];
+        this.control = this.getIterations(z);
+        //return control;
+    };
 
-        if(this.control == 0){
-            var zReal = 0.0;
-            var zImg = 0.0;
-        }
+    this.getIterations = function(z) {
+        var iterations = 0;
+        var cReal = this.mapXToReal(z[0]);
+        var cImg = this.mapYToComplex(z[1]);
+
+        var zReal = 0.0;
+        var zImg = 0.0;
 
         //var control = 0;
-        while (zReal * zReal + zImg*zImg < 4 && this.control < maxIterations) {
+        while (zReal * zReal + zImg*zImg < 4 && iterations < maxIterations) {
             var tmpZReal = zReal*zReal - zImg*zImg + cReal;
             var tmpZImg = 2*zReal*zImg + cImg;
             if (zReal == tmpZReal && zImg == tmpZImg) {
-                this.control = maxIterations;
+                iterations = maxIterations;
                 break;
             }
             zReal = tmpZReal;
             zImg = tmpZImg;
-            this.control++;
+            iterations++;
         }
-        //return control;
-    };
+        return iterations;
+    }
 
 }

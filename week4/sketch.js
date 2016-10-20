@@ -4,7 +4,7 @@
 
 
 function setup() {
-  createCanvas(600, 300);
+  createCanvas(700, 400);
   mandelbrot = new Mandelbrot();
   //mandelbrot.iterate();
 }
