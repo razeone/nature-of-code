@@ -9,8 +9,16 @@ var y2 = 1;
 var cWidth = x2-x1;
 var cHeight = y2-y1;
 
+var control = 0;
+
+var color = control;
+var zReal = 0.0;
+var zImg = 0.0;
 
 function Mandelbrot() {
+
+    this.x = 0;
+    this.y = 0;
 
 
     // map our bitmap x coordinate to a real axis coordinate
@@ -43,44 +51,46 @@ function Mandelbrot() {
         return palette;
     }
 
-    var palette = this.generatePalette();
-    var x = 0;
-    var y = 0;
-
     this.display = function() {
         for(var x = 0; x < width; x++){
             for(var y = 0; y < height; y++){
-                var color = this.iterate(x, y);
+                this.x = x;
+                this.y = y;
+                this.iterate(function(res) {
+                    console.log('Tr' + res);
+                });
+                //console.log('DEBUG: x, y: ' + x + ', ' + y);
                 stroke(palette[color]);
                 point(x, y);
             }
         }
     }
 
-    this.draw = function() {
+    var palette = this.generatePalette();
 
-    }
+    this.iterate = function() {
+        var cReal = this.mapXToReal(this.x);
+        var cImg = this.mapYToComplex(this.y);
 
-    this.iterate = function(x, y) {
-        var cReal = this.mapXToReal(x);
-        var cImg = this.mapYToComplex(y);
-
-        var zReal = 0.0;
-        var zImg = 0.0;
-
-        var control = 0;
-        while (zReal * zReal + zImg*zImg < 4 && control < maxIterations) {
+        //if(control == maxIterations &&)
+        
+        if (zReal * zReal + zImg*zImg < 4 && control < maxIterations) {
             var tmpZReal = zReal*zReal - zImg*zImg + cReal;
             var tmpZImg = 2*zReal*zImg + cImg;
             if (zReal == tmpZReal && zImg == tmpZImg) {
                 control = maxIterations;
-                break;
+                return 'Hello';
+                //break;
             }
             zReal = tmpZReal;
             zImg = tmpZImg;
+            color = control;
             control++;
+            this.iterate();
         }
-        return control;
+        else{
+            return 'Hello';
+        }
     };
 
 }
