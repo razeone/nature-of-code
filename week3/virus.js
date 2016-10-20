@@ -1,3 +1,7 @@
+// Jorge Raze
+// https://raze.mx
+// Session 4: Steering behaviours
+
 function Virus(m,x,y,r1,r2,npoints) {
 
 	this.mass = m;

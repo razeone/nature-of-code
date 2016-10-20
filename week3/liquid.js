@@ -1,7 +1,6 @@
-// Daniel Shiffman
-// https://www.kadenze.com/courses/the-nature-of-code
-// http://natureofcode.com/
-// Session 2: Drag Force
+// Jorge Raze
+// https://raze.mx
+// Session 4: Steering behaviours
 
 function Liquid(x, y, w, h, c) {
   this.x = x;
