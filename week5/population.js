@@ -1,0 +1,4 @@
+
+function Population(n,m){
+	
+}
