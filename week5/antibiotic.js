@@ -2,14 +2,14 @@
 // https://raze.mx
 // Session 5: Evolutionary Computing
 
-function Antibiotic(x, y, w_, h_) {
+function Antibiotic(x, y, w_, h_, f) {
   this.location = createVector(x,y);
   this.w = w_;
   this.h = h_;
 
   this.display = function() {
     stroke(0);
-    fill(175);
+    fill(f);
     strokeWeight(2);
     //rectMode(CORNER);
     ellipse(this.location.x,this.location.y,this.w,this.h);
