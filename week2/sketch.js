@@ -4,11 +4,15 @@
 
 var gelly;
 var stars = [];
+var dragging = 0.1
+var dampening = -5
+var starPoints = 18
+var starMass = 50
 
 function setup() {
-  createCanvas(800, 600);
-  
-  gelly = new Gelatin(width / 2, -1, width / 2, height + 1, 0.1);
+  createCanvas(screen.width, screen.height - 70);
+
+  gelly = new Gelatin(width / 2, -1, width / 2, height + 1, dragging);
 }
 
 function draw() {
@@ -16,7 +20,7 @@ function draw() {
   gelly.display();
 
   if (mouseIsPressed) {
-  	stars.push(new Star(5, mouseX, mouseY, 80, 100, 40));
+  	stars.push(new Star(starMass, mouseX, mouseY, 33, 99, starPoints, dampening));
   }
 
   for(i = 0; i < stars.length; i++){

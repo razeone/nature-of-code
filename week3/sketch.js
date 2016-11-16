@@ -12,7 +12,7 @@ var xoff = 0;
 var debug = false;
 
 function setup() {
-	createCanvas(1280, 800);
+	createCanvas(screen.width, screen.height - 70);
 
 	// Make a new flowfield
 	flowfield = new FlowField(20);
@@ -37,16 +37,17 @@ function draw() {
 	liquid.display();
 
 	// "regular" randomness
-  // var x = random(0, width);
-
+  //var x = random(0, width);
+	//var y = random(0, width);
+	//var x = width / 2;
+	//var y = height / 2;
   // Perlin noise value
-  var x = noise(xoff) * width;
-	var y = noise(xoff) * height;
-  // Move through perlin noise space
-  xoff += 0.05;
+  //var x = noise(xoff) * width;
+	//var y = noise(xoff) * height;
+  //// Move through perlin noise space
+  xoff += 900;
 	// Seek the target
-	var targetVector = createVector(x, y);
-	var cell = new Virus(5, random(width), random(width), 15, 20, 10);
+	var cell = new Virus(5, random(width / 20), random(width / 20), 15, 20, 10);
 	//var targetVector = createVector(random(width), random(height));
 	//var targetVector = new Virus(5, targetVectorPosition.xm, targetVectorPosition.y, 15, 20, 10);
 	//var targetVector = createVector(width / 2, height / 2);
@@ -72,7 +73,7 @@ function draw() {
 	    // Apply drag force to Mover
 	    viruses[i].applyForce(dragForce);
   	}
-		viruses[i].seek(targetVector);
+		viruses[i].seek(cell.pos);
 		viruses[i].display();
 		viruses[i].update();
 	}
@@ -84,7 +85,12 @@ function draw() {
 	    // Apply drag force to Mover
 	    leukocytes[i].applyForce(dragForce);
   	}
-		leukocytes[i].arrive(targetVector);
+		//console.log(viruses.length);
+		randomVirus = Math.floor(((Math.random() * viruses.length) + 1) -1);
+		//console.log(randomVirus);
+		randomVirusPos = viruses[randomVirus].pos;
+
+		leukocytes[i].arrive(randomVirusPos);
 		leukocytes[i].display();
 		leukocytes[i].update();
 

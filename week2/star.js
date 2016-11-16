@@ -2,7 +2,7 @@
 // https://raze.mx
 // Session 2: Drag Force
 
-function Star(m,x,y,r1,r2,npoints) {
+function Star(m,x,y,r1,r2,npoints, dampening) {
 
   this.mass = m;
   this.position = createVector(x,y);
@@ -45,7 +45,7 @@ function Star(m,x,y,r1,r2,npoints) {
   // Bounce off bottom of window
   this.checkEdges = function() {
     if (this.position.y > height) {
-      this.velocity.y *= -0.9;  // A little dampening when hitting the bottom
+      this.velocity.y *= dampening;  // A little dampening when hitting the bottom
       this.position.y = height;
     }
     // If we hit the bottom, let's increase velocity
