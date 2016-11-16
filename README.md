@@ -1,6 +1,6 @@
 # nature-of-code
 
-This series of assiments belong the "Nature of code" [Kadenze]("https://kadenze.com") MOOC by [Daniel Shiffman]("https://github.com/shiffman")
+This series of assiments belong the "Nature of code" [Kadenze](https://kadenze.com) MOOC by [Daniel Shiffman](https://github.com/shiffman)
 
 ### Contents
 Each week is part of the code submited as part of my work for the course, part of the code are the constructors of the actual [Nature Of Code Kadenze](https://github.com/shiffman/The-Nature-of-Code-Kadenze) examples.
