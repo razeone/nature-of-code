@@ -15,7 +15,7 @@ var info;
 var recordtime;         // Fastest time to target
 
 var antibiotics;  //an array list to keep track of all the antibiotics!
-var antibioticsLimit = 100;
+var antibioticsLimit = 15;
 
 function setup() {
   createCanvas(800, 600);

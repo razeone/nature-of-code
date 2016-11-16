@@ -3,7 +3,7 @@
 // Session 4: Fractals
 
 // Maximum number of iterations over the fractal
-var maxIterations = 1024;
+var maxIterations = 128;
 
 // Visible complex plane
 var x1 = -2.5;
