@@ -76,5 +76,12 @@ export default class Mandelbrot {
     this.p.image(this.buffer, 0, 0);
   }
 
+  /** Returns true when all columns have been rendered. */
   get done() { return this.currentX >= this.p.width; }
+
+  /** Clear the offscreen buffer and restart rendering from column 0. */
+  reset() {
+    this.currentX = 0;
+    this.buffer.background(0, 0);
+  }
 }

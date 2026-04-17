@@ -101,7 +101,7 @@ const sketch = (p) => {
 
   p.keyPressed = () => {
     if (p.key === 'f' || p.key === 'F') showFlow = !showFlow;
-    if (p.key === 'r' || p.key === 'R') mandelbrot.reset?.();
+    if (p.key === 'r' || p.key === 'R') mandelbrot.reset();
   };
 
   p.mousePressed = () => {
