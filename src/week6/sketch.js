@@ -27,7 +27,7 @@ import Antibiotic from '../week5/Antibiotic.js';
 const STAR_COUNT    = 120;
 const POP_SIZE      = 30;
 const MUTATION_RATE = 0.01;
-const SPAWN_RATE    = 2;   // new stars per frame
+const SPAWN_RATE    = 2;   // number of new stars spawned per frame
 
 const sketch = (p) => {
   let flowfield;

@@ -12,7 +12,7 @@ export default class Star {
   constructor(p, x, y) {
     this.p   = p;
     this.pos = p.createVector(x, y);
-    this.vel = p5.Vector.random2D().mult(p.random(0.5, 2));
+    this.vel = p.createVector(p.random(-1, 1), p.random(-1, 1)).setMag(p.random(0.5, 2));
     this.acc = p.createVector(0, 0);
 
     this.maxspeed  = p.random(2, 5);

@@ -60,7 +60,6 @@ Uses an offscreen `p5.Graphics` buffer. Renders 3 columns per frame with a biolu
 
 | Input | Action |
 |-------|--------|
-| Move mouse | Change target position (click to lock) |
 | Click | Snap target to mouse position |
 | Press `F` | Toggle flow field arrow overlay |
 | Press `R` | Restart Mandelbrot texture render |
