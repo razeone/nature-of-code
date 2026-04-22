@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nature of Code — Modern Creative Coding</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0a0a1a;
+      color: #e0e0f0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+      background: linear-gradient(180deg, #0d0d2b 0%, #0a0a1a 100%);
+      border-bottom: 1px solid #1e1e4a;
+    }
+
+    header h1 {
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      background: linear-gradient(135deg, #7eb8f7 0%, #b388ff 50%, #4dd0e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: #7080a0;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .subtitle {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #4a5a7a;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .week-card {
+      background: linear-gradient(135deg, #0f0f2e 0%, #12122a 100%);
+      border: 1px solid #1e2050;
+      border-radius: 12px;
+      padding: 1.8rem;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .week-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      opacity: 0.8;
+    }
+
+    .week-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px var(--accent);
+    }
+
+    .week-number {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .week-card h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      color: #d0d8f0;
+    }
+
+    .week-card p {
+      font-size: 0.875rem;
+      color: #5a6880;
+      line-height: 1.6;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      color: #7090b0;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .badge-new {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(77, 208, 225, 0.15);
+      color: #4dd0e1;
+      border: 1px solid rgba(77, 208, 225, 0.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid #1e1e4a;
+      color: #3a4a6a;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nature of Code</h1>
+    <p>Modern Creative Coding with p5.js &amp; ES2022+</p>
+    <p class="subtitle">Vite · ES Modules · Classes · Perlin Noise · Physics · Steering · Fractals · Genetic Algorithms</p>
+  </header>
+
+  <main>
+    <div class="week-grid">
+
+      <a href="./src/week0/index.html" class="week-card" style="--accent: #4dd0e1;">
+        <span class="badge-new">New</span>
+        <div class="week-number">Week 0</div>
+        <h2>JS &amp; p5.js Foundations</h2>
+        <p>JavaScript fundamentals, the p5.js coordinate system, animation loop, drawing primitives, vectors, interactivity, and your first class-based particle.</p>
+        <div class="tags">
+          <span class="tag">Variables</span>
+          <span class="tag">Functions</span>
+          <span class="tag">p5.Vector</span>
+          <span class="tag">Classes</span>
+          <span class="tag">Events</span>
+        </div>
+      </a>
+
+      <a href="./src/week1/index.html" class="week-card" style="--accent: #7eb8f7;">
+        <div class="week-number">Week 1</div>
+        <h2>Perlin Noise</h2>
+        <p>Explore organic randomness with Perlin noise. Animate a triangle whose vertices drift through noise space — click to trigger chaotic motion.</p>
+        <div class="tags">
+          <span class="tag">noise()</span>
+          <span class="tag">Perlin</span>
+          <span class="tag">Animation</span>
+          <span class="tag">Mouse Events</span>
+        </div>
+      </a>
+
+      <a href="./src/week2/index.html" class="week-card" style="--accent: #b388ff;">
+        <div class="week-number">Week 2</div>
+        <h2>Drag Forces</h2>
+        <p>Newton's laws in action — stars fall under gravity and experience drag as they pass through a gelatin medium. Click to spawn new stars.</p>
+        <div class="tags">
+          <span class="tag">Forces</span>
+          <span class="tag">Newton's Laws</span>
+          <span class="tag">Drag</span>
+          <span class="tag">Dampening</span>
+        </div>
+      </a>
+
+      <a href="./src/week3/index.html" class="week-card" style="--accent: #69f0ae;">
+        <div class="week-number">Week 3</div>
+        <h2>Steering Behaviors</h2>
+        <p>Viruses seek targets while leukocytes arrive at viruses using Reynolds' steering formulas. A liquid medium provides drag; press any key to see the flow field.</p>
+        <div class="tags">
+          <span class="tag">Seek</span>
+          <span class="tag">Arrive</span>
+          <span class="tag">Flow Field</span>
+          <span class="tag">Liquid Drag</span>
+        </div>
+      </a>
+
+      <a href="./src/week4/index.html" class="week-card" style="--accent: #ffb74d;">
+        <div class="week-number">Week 4</div>
+        <h2>Fractals &amp; Mandelbrot</h2>
+        <p>Render the iconic Mandelbrot set pixel-by-pixel using complex-number iteration and a hand-crafted color palette. Watch it build in real time.</p>
+        <div class="tags">
+          <span class="tag">Complex Numbers</span>
+          <span class="tag">Iteration</span>
+          <span class="tag">Color Palette</span>
+          <span class="tag">Pixel Art</span>
+        </div>
+      </a>
+
+      <a href="./src/week5/index.html" class="week-card" style="--accent: #f48fb1;">
+        <div class="week-number">Week 5</div>
+        <h2>Genetic Algorithms</h2>
+        <p>A population of viruses evolves DNA force-vectors to navigate toward an antibiotic target while avoiding obstacles — survival of the fittest in real time.</p>
+        <div class="tags">
+          <span class="tag">DNA</span>
+          <span class="tag">Fitness</span>
+          <span class="tag">Selection</span>
+          <span class="tag">Crossover</span>
+          <span class="tag">Mutation</span>
+        </div>
+      </a>
+
+      <a href="./src/week6/index.html" class="week-card" style="--accent: #80cbc4;">
+        <span class="badge-new">Capstone</span>
+        <div class="week-number">Week 6</div>
+        <h2>Viral Bloom</h2>
+        <p>A bioluminescent capstone combining every technique: Perlin flow field, physics-based star particles, an evolving virus population, and Mandelbrot-inspired texture.</p>
+        <div class="tags">
+          <span class="tag">Flow Field</span>
+          <span class="tag">Particles</span>
+          <span class="tag">Evolution</span>
+          <span class="tag">Generative Art</span>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <footer>
+    Nature of Code · Modern ES2022+ Edition · Built with Vite &amp; p5.js
+  </footer>
+</body>
+</html>
