@@ -1,0 +1,19 @@
+{
+  "name": "nature-of-code",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Nature of Code - Modern Creative Coding Course",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "gh-pages": "vite build && gh-pages -d dist"
+  },
+  "dependencies": {
+    "p5": "^1.9.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "gh-pages": "^6.0.0"
+  }
+}
