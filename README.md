@@ -2,7 +2,7 @@
 
 A complete creative coding course built on [p5.js](https://p5js.org/), modernised with **Vite**, **ES2022+** syntax, and ES Modules.
 
-> Original ES5 sketches live in `week1/`–`week5/`. The modern rewrite is in `src/week0/`–`src/week6/`.
+> All sketches live under `src/`. Every week ships as a Vite entry point that imports `p5` from `node_modules` and uses **p5 instance mode**.
 
 ## Course Structure
 
@@ -20,15 +20,15 @@ Each week ships with a quick-reference `README.md` next to the code, plus a
 `lectures/` directory containing 2–3 long-form lectures (theory, history,
 annotated source walkthroughs, exercises with hints, references).
 
-### Bonus examples for creative coders (weeks 6–10)
+### Bonus examples for creative coders
 
-These newer sketches extend the course with self-contained, modern-p5 examples that each lean on a single concept — ideal for teaching programming to creatives. They load p5 from a CDN, so you can just open the `index.html` in a browser (no build step, no bundled library folder).
+These additional self-contained sketches extend the course with one-concept-per-page demos — ideal for teaching programming to creatives. They use the same modern structure (Vite + ES modules + p5 instance mode) as the core weeks.
 
-* **Week 6 — Particle System (`week6/`)**: fireworks built from a `Particle` class and a `Firework` composition that explodes mid-air. Covers forces, arrays of objects, lifespan, and an `Emitter` that leaks embers from the mouse. Click to launch, space toggles wind.
-* **Week 7 — Flocking / Boids (`week7/`)**: an implementation of Craig Reynolds' three rules (separation, alignment, cohesion). Extends week 3's steering toward emergent group behavior. Keys `1`/`2`/`3` tune each rule's weight in real time.
-* **Week 8 — Conway's Game of Life (`week8/`)**: a cellular automaton on a toroidal grid with age-based coloring. Click-drag to paint, space to pause, `G` spawns Gosper's glider gun. Introduces 2D arrays, neighborhoods, and a classic simulation loop.
-* **Week 9 — L-Systems (`week9/`)**: procedural plants, Koch curve, Sierpinski triangle, and Heighway dragon from string-rewrite grammars drawn with a turtle. Builds on week 4's recursion but as a grammar. Click to plant wherever you like.
-* **Week 10 — Phyllotaxis (`week10/`)**: the Vogel formula that places seeds at the golden angle (~137.5°). Drag to tune angle and scale, scroll to add seeds, `P` cycles palettes, `S` saves a PNG. A closing "program as a design tool" demo.
+* **Week 6 Bonus — Particle System ([`src/week6-bonus/`](src/week6-bonus/))**: fireworks built from a `Particle` class and a `Firework` composition that explodes mid-air. Covers forces, arrays of objects, lifespan, and an `Emitter` that leaks embers from the mouse. Click to launch, space toggles wind.
+* **Week 7 — Flocking / Boids ([`src/week7/`](src/week7/))**: an implementation of Craig Reynolds' three rules (separation, alignment, cohesion). Extends week 3's steering toward emergent group behavior. Keys `1`/`2`/`3` tune each rule's weight in real time.
+* **Week 8 — Conway's Game of Life ([`src/week8/`](src/week8/))**: a cellular automaton on a toroidal grid with age-based coloring. Click-drag to paint, space to pause, `G` spawns Gosper's glider gun. Introduces 2D arrays, neighborhoods, and a classic simulation loop.
+* **Week 9 — L-Systems ([`src/week9/`](src/week9/))**: procedural plants, Koch curve, Sierpinski triangle, and Heighway dragon from string-rewrite grammars drawn with a turtle. Builds on week 4's recursion but as a grammar. Click to plant wherever you like.
+* **Week 10 — Phyllotaxis ([`src/week10/`](src/week10/))**: the Vogel formula that places seeds at the golden angle (~137.5°). Drag to tune angle and scale, scroll to add seeds, `P` cycles palettes, `S` saves a PNG. A closing "program as a design tool" demo.
 
 ## Getting Started
 
@@ -63,7 +63,7 @@ The test pyramid:
 | Layer | Lives in | Catches |
 |------|------|------|
 | **Unit** (Vitest + jsdom) | `tests/unit/*.test.js` | Logic regressions in `Star`, `FlowField`, `DNA`, `Population`, `Mandelbrot`, etc. — runs the real source files against a hand-rolled p5 stub (`tests/helpers/p5Stub.js`). |
-| **End-to-end** (Playwright) | `e2e/pages.spec.js` | Page-load regressions: each `weekN/index.html` is opened in headless Chromium and any uncaught error or `console.error` fails the test. |
+| **End-to-end** (Playwright) | `e2e/pages.spec.js` | Page-load regressions: each `src/weekN/index.html` is opened in headless Chromium and any uncaught error or `console.error` fails the test. |
 
 CI runs both layers on every push and pull request — see `.github/workflows/test.yml`.
 

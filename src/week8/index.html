@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 8 — Conway's Game of Life</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0b0e14; display: flex; flex-direction: column; align-items: center; font-family: system-ui, sans-serif; color: #eaeaea; }
+    header { padding: 1rem 2rem; color: #80cbc4; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    a { color: #80cbc4; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    canvas { vertical-align: top; display: block; }
+    .hud { position: fixed; left: 12px; bottom: 12px; font-size: 12px; opacity: 0.8; line-height: 1.5; }
+    .hud kbd { background: #1c2230; padding: 1px 5px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <header><a href="../../index.html">← Back</a> &nbsp;|&nbsp; Week 8 — Conway's Game of Life</header>
+  <div class="hud">
+    <kbd>Click</kbd>/<kbd>drag</kbd> to paint · <kbd>Space</kbd> pause · <kbd>N</kbd> step · <kbd>R</kbd> randomize · <kbd>C</kbd> clear · <kbd>G</kbd> glider gun · <kbd>+</kbd>/<kbd>-</kbd> speed
+  </div>
+  <script type="module" src="./sketch.js"></script>
+</body>
+</html>

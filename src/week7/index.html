@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 7 — Flocking (Boids)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #060a10; display: flex; flex-direction: column; align-items: center; font-family: system-ui, sans-serif; color: #eaeaea; }
+    header { padding: 1rem 2rem; color: #4dd0e1; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    a { color: #4dd0e1; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    canvas { vertical-align: top; display: block; }
+    .hud { position: fixed; left: 12px; bottom: 12px; font-size: 12px; opacity: 0.75; line-height: 1.5; }
+    .hud kbd { background: #1c2230; padding: 1px 5px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <header><a href="../../index.html">← Back</a> &nbsp;|&nbsp; Week 7 — Flocking (Boids)</header>
+  <div class="hud">
+    Move the mouse — the flock is drawn toward it.<br>
+    <kbd>1</kbd>/<kbd>2</kbd>/<kbd>3</kbd> tune separation / alignment / cohesion · <kbd>Shift</kbd> reverses · <kbd>R</kbd> reset · <kbd>T</kbd> trails · <kbd>Click</kbd> adds 15 boids
+  </div>
+  <script type="module" src="./sketch.js"></script>
+</body>
+</html>

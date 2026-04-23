@@ -9,6 +9,11 @@ const PAGES = [
   { name: 'week4',  path: '/src/week4/index.html' },
   { name: 'week5',  path: '/src/week5/index.html' },
   { name: 'week6',  path: '/src/week6/index.html' },
+  { name: 'week6-bonus', path: '/src/week6-bonus/index.html' },
+  { name: 'week7',  path: '/src/week7/index.html' },
+  { name: 'week8',  path: '/src/week8/index.html' },
+  { name: 'week9',  path: '/src/week9/index.html' },
+  { name: 'week10', path: '/src/week10/index.html' },
 ];
 
 for (const page of PAGES) {
