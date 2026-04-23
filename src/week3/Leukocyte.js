@@ -3,6 +3,8 @@
  * @description A circular immune-cell agent that uses the *arrive* steering
  *              behavior — it slows down as it approaches its target.
  */
+import p5 from 'p5';
+
 export default class Leukocyte {
   /**
    * @param {p5}    p - p5 instance

@@ -4,6 +4,8 @@
  *              acceleration. Applies Newton's 2nd law (F = ma). Bounces off
  *              the bottom edge with dampening.
  */
+import p5 from 'p5';
+
 export default class Star {
   /**
    * @param {p5}    p         - p5 instance

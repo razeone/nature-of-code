@@ -3,6 +3,8 @@
  * @description A star-shaped agent that uses the *seek* steering behavior to
  *              chase a target position. Based on Craig Reynolds' steering formulas.
  */
+import p5 from 'p5';
+
 export default class Virus {
   /**
    * @param {p5}    p       - p5 instance
