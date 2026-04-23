@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 10 — Phyllotaxis</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #06060a; display: flex; flex-direction: column; align-items: center; font-family: system-ui, sans-serif; color: #eaeaea; }
+    header { padding: 1rem 2rem; color: #ffb74d; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    a { color: #ffb74d; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    canvas { vertical-align: top; display: block; }
+    .hud { position: fixed; left: 12px; bottom: 12px; font-size: 12px; opacity: 0.85; line-height: 1.6; }
+    .hud kbd { background: #1c2230; padding: 1px 5px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <header><a href="../../index.html">← Back</a> &nbsp;|&nbsp; Week 10 — Phyllotaxis</header>
+  <div class="hud">
+    <kbd>Drag</kbd> to tune angle (x) and scale (y) ·
+    <kbd>Space</kbd> animate ·
+    <kbd>G</kbd> reset to golden angle ·
+    <kbd>P</kbd> cycle palettes ·
+    <kbd>S</kbd> save PNG
+  </div>
+  <script type="module" src="./sketch.js"></script>
+</body>
+</html>

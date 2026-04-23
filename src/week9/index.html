@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 9 — L-Systems</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a100b; display: flex; flex-direction: column; align-items: center; font-family: system-ui, sans-serif; color: #eaeaea; }
+    header { padding: 1rem 2rem; color: #69f0ae; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    a { color: #69f0ae; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    canvas { vertical-align: top; display: block; }
+    .hud { position: fixed; left: 12px; bottom: 12px; font-size: 12px; opacity: 0.8; line-height: 1.5; }
+    .hud kbd { background: #1c2230; padding: 1px 5px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <header><a href="../../index.html">← Back</a> &nbsp;|&nbsp; Week 9 — L-Systems</header>
+  <div class="hud">
+    <kbd>Click</kbd> grow where you click ·
+    <kbd>1</kbd> plant · <kbd>2</kbd> Koch · <kbd>3</kbd> Sierpinski · <kbd>4</kbd> dragon ·
+    <kbd>+</kbd>/<kbd>-</kbd> iterations · <kbd>R</kbd> new seed
+  </div>
+  <script type="module" src="./sketch.js"></script>
+</body>
+</html>
