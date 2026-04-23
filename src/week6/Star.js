@@ -3,6 +3,8 @@
  * @description A bioluminescent particle that follows the flow field and
  *              fades over its lifetime, trailing a glowing streamer.
  */
+import p5 from 'p5';
+
 export default class Star {
   /**
    * @param {p5}    p    - p5 instance

@@ -4,6 +4,8 @@
  *              vectors — one per generation tick (`lifetime`). Supports
  *              single-point crossover and per-gene mutation.
  */
+import p5 from 'p5';
+
 export default class DNA {
   /**
    * @param {p5}     p        - p5 instance

@@ -6,15 +6,19 @@ A complete creative coding course built on [p5.js](https://p5js.org/), modernise
 
 ## Course Structure
 
-| Week | Topic | Key Concepts |
-|------|-------|-------------|
-| 0 | JS & p5.js Foundations | Variables, loops, p5.Vector, classes, events |
-| 1 | Perlin Noise | `noise()`, organic randomness, animation |
-| 2 | Drag Forces | Newton's laws, F = ma, drag coefficient |
-| 3 | Steering Behaviors | Seek, arrive, flow fields, liquid drag |
-| 4 | Fractals & Mandelbrot | Complex numbers, iteration, color palettes |
-| 5 | Genetic Algorithms | DNA, fitness, selection, crossover, mutation |
-| 6 | Viral Bloom (Capstone) | All concepts combined into generative art |
+| Week | Topic | Sketch | Lectures |
+|------|-------|--------|----------|
+| 0 | JS & p5.js Foundations | [`src/week0/`](src/week0/) | [📖](src/week0/lectures/) |
+| 1 | Perlin Noise | [`src/week1/`](src/week1/) | [📖](src/week1/lectures/) |
+| 2 | Drag Forces | [`src/week2/`](src/week2/) | [📖](src/week2/lectures/) |
+| 3 | Steering Behaviors | [`src/week3/`](src/week3/) | [📖](src/week3/lectures/) |
+| 4 | Fractals & Mandelbrot | [`src/week4/`](src/week4/) | [📖](src/week4/lectures/) |
+| 5 | Genetic Algorithms | [`src/week5/`](src/week5/) | [📖](src/week5/lectures/) |
+| 6 | Viral Bloom (Capstone) | [`src/week6/`](src/week6/) | [📖](src/week6/lectures/) |
+
+Each week ships with a quick-reference `README.md` next to the code, plus a
+`lectures/` directory containing 2–3 long-form lectures (theory, history,
+annotated source walkthroughs, exercises with hints, references).
 
 ## Getting Started
 
@@ -31,6 +35,27 @@ Then open `http://localhost:5173` in your browser.
 npm run build
 npm run preview
 ```
+
+## Testing
+
+This project uses [Vitest](https://vitest.dev/) for unit tests and
+[Playwright](https://playwright.dev/) for end-to-end smoke tests of every week's
+sketch page.
+
+```bash
+npm test            # run all unit tests once
+npm run test:watch  # watch mode
+npm run test:e2e    # build + Playwright (boots vite preview, loads each week)
+```
+
+The test pyramid:
+
+| Layer | Lives in | Catches |
+|------|------|------|
+| **Unit** (Vitest + jsdom) | `tests/unit/*.test.js` | Logic regressions in `Star`, `FlowField`, `DNA`, `Population`, `Mandelbrot`, etc. — runs the real source files against a hand-rolled p5 stub (`tests/helpers/p5Stub.js`). |
+| **End-to-end** (Playwright) | `e2e/pages.spec.js` | Page-load regressions: each `weekN/index.html` is opened in headless Chromium and any uncaught error or `console.error` fails the test. |
+
+CI runs both layers on every push and pull request — see `.github/workflows/test.yml`.
 
 ## Tech Stack
 

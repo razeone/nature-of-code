@@ -3,6 +3,8 @@
  * @description A 2-D grid of p5.Vectors derived from Perlin noise. Agents
  *              can query the field at any position to get a steering direction.
  */
+import p5 from 'p5';
+
 export default class FlowField {
   /**
    * @param {p5}    p          - p5 instance

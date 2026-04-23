@@ -7,13 +7,19 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "gh-pages": "vite build && gh-pages -d dist"
+    "gh-pages": "vite build && gh-pages -d dist",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "p5": "^1.9.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "gh-pages": "^6.0.0",
+    "jsdom": "^29.0.2",
     "vite": "^5.0.0",
-    "gh-pages": "^6.0.0"
+    "vitest": "^4.1.4"
   }
 }

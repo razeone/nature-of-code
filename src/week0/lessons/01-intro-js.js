@@ -29,7 +29,7 @@ const sketch = (p) => {
 
     // --- Template literals ---
     const msg = `Sum: ${sum}, Product: ${product}, Modulo: ${modulo}`;
-
+    
     p.fill(180, 220, 255);
     p.textSize(14);
     p.text(`Course: ${name}`, 30, 40);

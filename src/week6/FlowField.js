@@ -3,6 +3,8 @@
  * @description Perlin-noise flow field that animates over time, creating a
  *              slowly shifting bioluminescent current across the canvas.
  */
+import p5 from 'p5';
+
 export default class FlowField {
   /**
    * @param {p5}    p          - p5 instance
