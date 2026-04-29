@@ -1,7 +1,13 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'node:path';
 
+// Project is published at https://razeone.github.io/nature-of-code/
+// so all built asset URLs need to be prefixed with the repo name.
+// Override with `VITE_BASE=/ npm run build` for root-level deployments.
+const base = process.env.VITE_BASE ?? '/nature-of-code/';
+
 export default defineConfig({
+  base,
   build: {
     rollupOptions: {
       input: {

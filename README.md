@@ -46,6 +46,33 @@ npm run build
 npm run preview
 ```
 
+The build assumes deployment under `/nature-of-code/` (GitHub Pages project
+site). To build for a different base path — e.g. the domain root — set the
+`VITE_BASE` environment variable:
+
+```bash
+VITE_BASE=/ npm run build
+```
+
+## Deployment
+
+The site is deployed to GitHub Pages automatically by the
+[`Deploy to GitHub Pages`](.github/workflows/deploy.yml) workflow on every push
+to `main`. The workflow builds with Vite and publishes `dist/` using the
+official `actions/deploy-pages` action.
+
+To enable it on a fresh fork:
+
+1. In **Settings → Pages**, set **Source** to **GitHub Actions**.
+2. Push to `main` (or trigger the workflow manually from the Actions tab).
+
+A manual one-off deploy from your machine is also available via the
+[`gh-pages`](https://www.npmjs.com/package/gh-pages) branch script:
+
+```bash
+npm run gh-pages
+```
+
 ## Testing
 
 This project uses [Vitest](https://vitest.dev/) for unit tests and
